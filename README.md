@@ -32,7 +32,7 @@ docker pull mvanholsteijn/shellinabox:latest
 For example
 
 ```bash
-docker run -p 4200:4200 -e SIAB_USER=mvanholsteijn -e SIAB_PASSWORD=xyz678abc -e SIAB_SUDO=true mvanholsteijn/shellinabox:latest
+docker run -p 4200:4200 -e SIAB_SSL=false -e SIAB_USER=mvanholsteijn -e SIAB_PASSWORD=xyz678abc -e SIAB_SUDO=true mvanholsteijn/shellinabox:latest
 ```
 
 # Configuration

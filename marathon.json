@@ -36,7 +36,7 @@
   "labels": {
     "HAPROXY_GROUP":"external",
     "HAPROXY_0_VHOST":"shell.127.0.0.1.xip.io"
-  }
+  },
   "healthChecks": [
       {
 	  "protocol": "HTTP",

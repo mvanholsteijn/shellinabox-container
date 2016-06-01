@@ -1,0 +1,51 @@
+{
+  "id": "shellinabox",
+  "cpus": 0.25,
+  "mem": 128.0,
+  "instances": 1,
+  "constraints": [
+  ],
+  "container": {
+  "type": "DOCKER",
+    "docker": {
+      "image": "mvanholsteijn/shellinabox:latest",
+      "network": "BRIDGE",
+      "forcePullImage": true,
+      "portMappings": [
+        { "containerPort": 4200, "hostPort": 0, "protocol": "tcp" }
+      ],
+      "parameters": [
+      {
+        "key": "rm",
+        "value": "true"
+      }]
+    },
+    "volumes": [
+    {
+      "containerPath": "/dev/log",
+      "hostPath": "/dev/log",
+      "mode": "RW"
+    }
+    ]
+  },
+  "env": { 
+    "SIAB_SSL": "false",
+    "SIAB_USER": "yourusername",
+    "SIAB_PASSWORD": "putsafepasswordhere"
+  },
+  "labels": {
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"shell.127.0.0.1.xip.io"
+  }
+  "healthChecks": [
+      {
+	  "protocol": "HTTP",
+	  "path": "/",
+	  "gracePeriodSeconds": 60,
+	  "intervalSeconds": 60,
+	  "portIndex": 0,
+	  "timeoutSeconds": 10,
+	  "maxConsecutiveFailures": 3
+      }
+   ]
+}
